@@ -86,7 +86,7 @@ def load_bp(oauth):
     @plugin_bp.route("/sso/login/<int:client_id>", methods = ['GET'])
     def sso_oauth(client_id):
         client = oauth.create_client(client_id)
-        redirect_uri=url_for('sso.sso_redirect', client_id=client_id, _external=True)
+        redirect_uri=url_for('sso.sso_redirect', client_id=client_id, _external=True, _scheme='https')
         return client.authorize_redirect(redirect_uri)
 
 
